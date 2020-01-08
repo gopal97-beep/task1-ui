@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<div class="header">
+    <a href="#default" class="logo"><img src="https://img.icons8.com/officel/30/000000/user-group-man-man.png"></a>
+
+  </div>
+  <div class="logo2">
+    <img src="https://img.icons8.com/ios-glyphs/30/000000/user-male.png">
+   Users
+  </div>
+  <div class="row" >
+      <div class="col-md-9">
+        <div class="user">
+        <a type="button" (click)="open(content)" class="btn" data-toggle="modal" data-target="#myModal"><img src="https://img.icons8.com/material-sharp/24/000000/plus-math.png">New User</a>
+          </div>  
+                  
+            
+          
+
+</div>
+<div class="col-md-3" >
+    <p style="padding: 0 10px 0 0;">Filter</p>
+    <input  [(ngModel)]="username" (input)="Search()" style="margin-right: 12px;overflow:hidden;width:60%"class="form-control" type="text" placeholder="Search" aria-label="Search">
+    
+</div>
+</div>
+<div class="row" style="padding: 30px 10px 10px 10px;">
+    <div *ngFor="let u of user">
+<div class="col-md-3" style="padding: 10px 10px 10px 10px;">
+    <div class="card" style="width: 17rem;height: 10rem;">
+        <div class="card-body" style="padding:0">
+            
+         <div class="lol1">
+             <div class="row">
+                 <div class="col-md-8">
+                     {{u.username}}
+
+                 </div>
+                 <div class="col-md-4" >
+                    <a><img style="float: right;"  src="https://img.icons8.com/material-outlined/24/000000/edit-image.png">
+                    </a>
+                    </div>
+             </div>
+         </div>
+        <div class="row">
+        <div class="col-md-3"  >
+            <img src="https://img.icons8.com/officel/80/000000/user.png">
+        </div>
+        <div class="col-md-9">
+            <p class="card-text">name:{{u.username}}<br>Email:{{u.email}}<br>phone:{{u.phone}}</p>
+        </div>
+       
+        </div>
+
+         
+    </div>
+        
+    </div>
+        </div>
+      </div>
+</div>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New User</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" [(ngModel)]="username1" name="username1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+                
+              </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" [(ngModel)]="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Phone Number</label>
+              <input type="number" [(ngModel)]="phone" name="phone"class="form-control" id="exampleInputPassword1" placeholder="Phone">
+            </div>
+           
+            <button type="submit" (click)="submit()" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+  
+  
+  <hr>
+  
+  
