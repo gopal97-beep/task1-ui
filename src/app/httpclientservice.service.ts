@@ -14,4 +14,11 @@ export class HttpclientserviceService {
   addprofile(User1){
     return this.http.post<User>("http://localhost:3004/profile",User1);
 }
+updateprofile(User2,id){
+  return this.http.put<User>("http://localhost:3004/profile/"+id,User2);
+}
+
+
+
+
 }
